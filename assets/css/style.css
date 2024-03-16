@@ -5,6 +5,7 @@
 :root {
     --primary-color: #0f1b4c;
     --color-desc: #7b8087;
+    --header-color: #e6f0ff;
 }
 
 html {
@@ -53,16 +54,25 @@ p {
     overflow: hidden;
 }
 /* ======== Header ======== */
-.header {
+.fix-header {
+    background: var(--header-color);
+    padding-top: 26px;
+    position: sticky;
+    top: -26px;
+    z-index: 1;
+}
+.hero-wrap {
     position: relative;
-    background: #e6f0ff;
-    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Hướng flex: theo cột */
+    background: var(--header-color);
+    height: calc(100vh - 90px);
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    padding-top: 38px;
+    padding: 12px 0;
 }
 .navbar ul {
     display: flex;
@@ -532,12 +542,17 @@ p {
 }
 .footer .social-link {
     display: flex;
-
+    background: #f9f9f9;
+    /* background: #0689ff; */
+    border-radius: 4px;
     align-items: center;
     justify-content: center;
     width: 28px;
     height: 28px;
 }
+.footer .social-link + .social-link {
+    margin-left: 16px;
+} /* Chọn social link đằng sau cái đầu tiên */
 .footer .social-link:hover {
     background: #b6b6b6;
 }
